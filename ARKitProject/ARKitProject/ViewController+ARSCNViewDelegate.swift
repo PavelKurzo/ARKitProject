@@ -14,10 +14,10 @@ extension ViewController: ARSCNViewDelegate {
         guard anchor is ARPlaneAnchor  else {return }
         print("Horizontal surface detected")
         
-//        let planeAnchor = anchor as! ARPlaneAnchor
-//
-//        let planeNode = createPlane(planeAnchor: planeAnchor)
-//        node.addChildNode(planeNode)
+        //        let planeAnchor = anchor as! ARPlaneAnchor
+        //
+        //        let planeNode = createPlane(planeAnchor: planeAnchor)
+        //        node.addChildNode(planeNode)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
@@ -25,29 +25,29 @@ extension ViewController: ARSCNViewDelegate {
         
         print("Horizontal surface updated")
         
-//        let planeAnchor = anchor as! ARPlaneAnchor
-//
-//        node.enumerateChildNodes { childNode, _ in
-//            childNode.removeFromParentNode()
-//        }
-//
-//        let planeNode = createPlane(planeAnchor: planeAnchor)
-//        node.addChildNode(planeNode)
+        //        let planeAnchor = anchor as! ARPlaneAnchor
+        //
+        //        node.enumerateChildNodes { childNode, _ in
+        //            childNode.removeFromParentNode()
+        //        }
+        //
+        //        let planeNode = createPlane(planeAnchor: planeAnchor)
+        //        node.addChildNode(planeNode)
         
         guard focusSquare == nil else {return}
         let focusSquareLocal = FocusSquare()
         sceneView.scene.rootNode.addChildNode(focusSquareLocal)
-//        focusSquare = focusSquareLocal
+        //        focusSquare = focusSquareLocal
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         guard anchor is ARPlaneAnchor else {return}
-//        print("Horizontal surface removed")
+        //        print("Horizontal surface removed")
         
-//        node.enumerateChildNodes { childNode, _ in
-//            childNode.removeFromParentNode()
-//        }
-//    }
+        //        node.enumerateChildNodes { childNode, _ in
+        //            childNode.removeFromParentNode()
+        //        }
+    }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         guard let focusSquareLocal = focusSquare else {return}
@@ -70,11 +70,10 @@ extension ViewController: ARSCNViewDelegate {
         
         let planeNode = SCNNode(geometry: plane)
         planeNode.position = SCNVector3(x: planeAnchor.center.x, y: planeAnchor.center.y, z: planeAnchor.center.z)
-//        planeNode.eulerAngles.x = -.pi / 2
+        //        planeNode.eulerAngles.x = -.pi / 2
         planeNode.eulerAngles.x = GLKMathDegreesToRadians(-90)
         
         
         return planeNode
     }
 }
-
