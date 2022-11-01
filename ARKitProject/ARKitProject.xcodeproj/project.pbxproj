@@ -14,6 +14,7 @@
 		A856064F291002DF0018ECBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A856064E291002DF0018ECBD /* Assets.xcassets */; };
 		A8560652291002DF0018ECBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8560650291002DF0018ECBD /* LaunchScreen.storyboard */; };
 		A8560678291025E90018ECBD /* ViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8560677291025E90018ECBD /* ViewController+ARSCNViewDelegate.swift */; };
+		A856067A29111C5A0018ECBD /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A856067929111C5A0018ECBD /* FocusSquare.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		A856064E291002DF0018ECBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8560651291002DF0018ECBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8560677291025E90018ECBD /* ViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		A856067929111C5A0018ECBD /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				A8560647291002DE0018ECBD /* art.scnassets */,
 				A8560649291002DE0018ECBD /* ViewController.swift */,
 				A8560677291025E90018ECBD /* ViewController+ARSCNViewDelegate.swift */,
+				A856067929111C5A0018ECBD /* FocusSquare.swift */,
 				A856064B291002DE0018ECBD /* Main.storyboard */,
 				A856064E291002DF0018ECBD /* Assets.xcassets */,
 				A8560650291002DF0018ECBD /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8560678291025E90018ECBD /* ViewController+ARSCNViewDelegate.swift in Sources */,
+				A856067A29111C5A0018ECBD /* FocusSquare.swift in Sources */,
 				A856064A291002DE0018ECBD /* ViewController.swift in Sources */,
 				A8560646291002DE0018ECBD /* AppDelegate.swift in Sources */,
 			);

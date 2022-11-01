@@ -14,10 +14,10 @@ extension ViewController: ARSCNViewDelegate {
         guard anchor is ARPlaneAnchor  else {return }
         print("Horizontal surface detected")
         
-        let planeAnchor = anchor as! ARPlaneAnchor
-        
-        let planeNode = createPlane(planeAnchor: planeAnchor)
-        node.addChildNode(planeNode)
+//        let planeAnchor = anchor as! ARPlaneAnchor
+//
+//        let planeNode = createPlane(planeAnchor: planeAnchor)
+//        node.addChildNode(planeNode)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
@@ -25,22 +25,41 @@ extension ViewController: ARSCNViewDelegate {
         
         print("Horizontal surface updated")
         
-        let planeAnchor = anchor as! ARPlaneAnchor
+//        let planeAnchor = anchor as! ARPlaneAnchor
+//
+//        node.enumerateChildNodes { childNode, _ in
+//            childNode.removeFromParentNode()
+//        }
+//
+//        let planeNode = createPlane(planeAnchor: planeAnchor)
+//        node.addChildNode(planeNode)
         
-        node.enumerateChildNodes { childNode, _ in
-            childNode.removeFromParentNode()
-        }
-        
-        let planeNode = createPlane(planeAnchor: planeAnchor)
-        node.addChildNode(planeNode)
+        guard focusSquare == nil else {return}
+        let focusSquareLocal = FocusSquare()
+        sceneView.scene.rootNode.addChildNode(focusSquareLocal)
+//        focusSquare = focusSquareLocal
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         guard anchor is ARPlaneAnchor else {return}
-        print("Horizontal surface removed")
+//        print("Horizontal surface removed")
         
-        node.enumerateChildNodes { childNode, _ in
-            childNode.removeFromParentNode()
+//        node.enumerateChildNodes { childNode, _ in
+//            childNode.removeFromParentNode()
+//        }
+//    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        guard let focusSquareLocal = focusSquare else {return}
+        
+        let hitTest = sceneView.hitTest(screenCenter, types: .existingPlane)
+        let hitTestResult = hitTest.first
+        guard let worldTransform = hitTestResult?.worldTransform else {return}
+        let worldTransformColumn3 = worldTransform.columns.3
+        focusSquareLocal.position = SCNVector3(worldTransformColumn3.x, worldTransformColumn3.y, worldTransformColumn3.z)
+        
+        DispatchQueue.main.async {
+            self.updateFocusSquare()
         }
     }
     
